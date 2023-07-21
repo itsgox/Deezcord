@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "MADE_TOMMY_Bold";
+  src: url("../fonts/MADE_TOMMY_Bold.otf");
+}
+@font-face {
+  font-family: "MADE_TOMMY_Light";
+  src: url("../fonts/MADE_TOMMY_Light.otf");
+}
+@font-face {
+  font-family: "MADE_TOMMY_Medium";
+  src: url("../fonts/MADE_TOMMY_Medium.otf");
+}
+@font-face {
+  font-family: "MADE_TOMMY_Regular";
+  src: url("../fonts/MADE_TOMMY_Regular.otf");
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: MADE_TOMMY_Medium;
+  background: rgb(29, 29, 29);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(81, 81, 81);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(56, 56, 56);
+  padding: 1px;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .set-username {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.chat-box {
+  background: rgb(56, 56, 56);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 500px;
+  height: 70%;
+  border-radius: 25px 25px 20px 20px;
+}
+.chat-box .header {
+  padding: 25px 35px;
+  background: rgb(42, 42, 42);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-box .header .chat-title {
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.chat-box .header .chat-title .description {
+  font-family: MADE_TOMMY_Light;
+  font-size: 17px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.chat-box .header .chat-title .description .online-icon {
+  color: green;
+  font-size: 11px;
+}
+.chat-box .chat-container {
+  height: 100%;
+  overflow-y: scroll;
+  transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+}
+.chat-box .chat {
+  box-sizing: border-box;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 35px 30px 35px 38px;
+  gap: 30px;
+  transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+}
+.chat-box .chat .typing {
+  margin-top: 5px;
+  font-family: MADE_TOMMY_Regular;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.chat-box .chat .invisible {
+  display: none;
+}
+.chat-box .chat .message {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-box .chat .message .username {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.chat-box .chat .message .username .user {
+  font-size: 20px;
+  font-family: MADE_TOMMY_Regular;
+  color: white;
+}
+.chat-box .chat .message .username .bot-badge {
+  background: #6373ff;
+  box-shadow: 0px 5px 25px rgba(99, 115, 255, 0.2549019608);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px 0 3px;
+  height: 20px;
+  gap: 2px;
+  color: white;
+  border-radius: 4px;
+  font-family: MADE_TOMMY_Regular;
+  transform: scale(0.9);
+  position: relative;
+  top: 2.5px;
+}
+.chat-box .chat .message .username .bot-badge .icon {
+  transform: rotate(-7deg);
+  font-size: 16px;
+}
+.chat-box .chat .message .username .bot-badge span {
+  font-size: 12.5px;
+}
+.chat-box .chat .message .text {
+  font-family: MADE_TOMMY_Light;
+  padding: 20px 25px;
+  font-size: 17px;
+  word-wrap: break-word;
+  color: white;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-box .chat .message .text .timestamp {
+  font-size: 14px;
+  font-family: MADE_TOMMY_Light;
+  color: rgba(255, 255, 255, 0.3);
+}
+.chat-box .chat .left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.chat-box .chat .left .text {
+  border-radius: 5px 10px 10px 10px;
+  align-items: flex-start;
+}
+.chat-box .chat .right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.chat-box .chat .right .text {
+  border-radius: 10px 5px 10px 10px;
+  align-items: flex-end;
+}
+.chat-box .chat .primary .text {
+  background: #606060;
+  box-shadow: -2.5px 5px 25px rgba(0, 0, 0, 0.0705882353);
+}
+.chat-box .chat .secondary .text {
+  background: #474747;
+  box-shadow: -2.5px 5px 25px rgba(0, 0, 0, 0.0705882353);
+}
+.chat-box .chat .same-user {
+  margin-top: -20px;
+}
+.chat-box .chat .same-user .text {
+  border-radius: 10px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  background: rgb(42, 42, 42);
+  margin: 0 35px 35px 35px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.0745098039);
+  position: relative;
+  padding: 15px;
+  gap: 10px;
+}
+.footer .input {
+  padding: 20px 25px;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: MADE_TOMMY_Regular;
+  font-size: 20px;
+  margin: -15px;
+  background: rgb(42, 42, 42);
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+}
+.footer .button {
+  background: #6373ff;
+  box-shadow: 0px 5px 25px rgba(99, 115, 255, 0.2549019608);
+  color: white;
+  padding: 10px 12px;
+  font-size: 25px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.5s;
+  box-sizing: border-box;
+  aspect-ratio: 1/1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .disabled {
+  opacity: 70%;
+  cursor: not-allowed;
+}
+
+@media only screen and (max-width: 800px) {
+  .chat-box {
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+  .chat-box .header {
+    border-radius: 0;
+  }
+  .set-username {
+    margin: 50px;
+  }
+}/*# sourceMappingURL=style.css.map */
