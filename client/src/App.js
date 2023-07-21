@@ -25,7 +25,7 @@ function App() {
 
 	function sendMessage(bot) {
 
-		if ((message && message !== '' && message.replaceAll(' ','') === '') || bot) {
+		if ((message && message !== '' && message.replaceAll(' ','') !== '') || bot) {
 			const msg = { id: bot ? 0 : userId, user: bot ? 'Elon Musk' : username, text: bot ? bot : message, bot: bot ? true : false, avoid: userId, timestamp: new Date().toLocaleString('en-US', { hour: '2-digit', hour12: true, minute: '2-digit' }) };
 			setChat(chat.concat([msg]));
 			socket?.emit('send-message', msg);
