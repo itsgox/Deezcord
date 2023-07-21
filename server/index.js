@@ -8,6 +8,10 @@ const io = new Server(3005, {
 
 io.on('connection', (socket) => {
 
+	socket.on('get-data', () => {
+		io.sockets.timeout(2000).emit('online-users', io.sockets.sockets.size);
+	});
+
 	socket.on('join', () => {
 		io.sockets.timeout(2000).emit('online-users', io.sockets.sockets.size);
 	});

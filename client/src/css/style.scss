@@ -40,6 +40,32 @@ body {
     padding: 1px;
 }
 
+.column {
+    flex-direction: column;
+
+    .mid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        transform: scale(1.2);
+    }
+
+    .warning {
+        color: white;
+        font-family: MADE_TOMMY_Regular;
+    
+        .link {
+            color: #6373ff;
+            text-decoration: none;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 .container {
     position: absolute;
     top: 0;
@@ -51,8 +77,57 @@ body {
     justify-content: center;
 
     .set-username {
-        transform: scale(1.2);
+        background: rgba(56, 56, 56, 0);
         box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        min-width: 250px;
+        margin: 0;
+        padding: 20px;
+
+        .titles {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+
+            span {
+                display: none;
+            }
+        }
+
+        .title {
+            font-family: MADE_TOMMY_Bold;
+            font-size: 32px;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .button {
+            display: flex;
+            padding: 10px 15px;
+            width: 100%;
+            aspect-ratio: unset;
+            font-size: 18px;
+            gap: 5px;
+            margin-top: 10px;
+            border-radius: 7px;
+        }
+
+        .input {
+            background: rgb(42, 42, 42);
+            font-size: 18px;
+            margin: 0;
+            padding: 10px 15px;
+            border-radius: 7px;
+            cursor: text;
+        }
     }
 }
 
@@ -90,21 +165,21 @@ body {
                 gap: 8px;
     
                 .online-icon {
-                    color: green;
+                    color: #52b062;
                     font-size: 11px;
                 }
             }
+        }
+
+        .logout {
+            font-size: 30px;
+            cursor: pointer;
         }
     }
 
     .chat-container {
         height: 100%;
         overflow-y: scroll;
-        transform: rotateX(180deg);
-        -moz-transform: rotateX(180deg);
-        -webkit-transform: rotateX(180deg);
-        -ms-transform: rotateX(180deg);
-        -o-transform: rotateX(180deg);
     }
 
     .chat {
@@ -113,13 +188,8 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 35px 30px 35px 38px;
+        padding: 35px 27px 35px 35px;
         gap: 30px;
-        transform: rotateX(180deg);
-        -moz-transform: rotateX(180deg);
-        -webkit-transform: rotateX(180deg);
-        -ms-transform: rotateX(180deg);
-        -o-transform: rotateX(180deg);
 
         .typing {
             margin-top: 5px;
@@ -132,75 +202,114 @@ body {
             display: none;
         }
 
-        .message {
+        .msg-group {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            flex-direction: row;
+            gap: 12px;
+            word-wrap: break-word;
 
-            .username {
-                display: flex;
-                flex-direction: row;
-                gap: 5px;
-
-                .user {
-                    font-size: 20px;
-                    font-family: MADE_TOMMY_Regular;
-                    color: white;
-                }
-                
-                .bot-badge {
-                    background: #6373ff;
-                    box-shadow: 0px 5px 25px #6373ff41;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 0 6px 0 3px;
-                    height: 20px;
-                    gap: 2px;
-                    color: white;
-                    border-radius: 4px;
-                    font-family: MADE_TOMMY_Regular;
-                    transform: scale(0.9);
-                    position: relative;
-                    top: 2.5px;
-
-                    .icon {
-                        transform: rotate(-7deg);
-                        font-size: 16px;
-                    }
-
-                    span {
-                        font-size: 12.5px;
-                    }
-                }
+            .avatar-cont {
+                min-width: 50px;
+                max-width: 50px;
+                min-height: 50px;
+                max-height: 50px;
             }
 
-            .text {
-                font-family: MADE_TOMMY_Light;
-                padding: 20px 25px;
-                font-size: 17px;
-                word-wrap: break-word;
-                color: white;
-                max-width: 70%;
+            .avatar {
+                width: 100%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                box-shadow: 0px 7px 10px #0000000b;
+                cursor: pointer;
+            }
+
+            .message {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
-
-                .timestamp {
-                    font-size: 14px;
+                gap: 8px;
+    
+                .username {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    align-items: center;
+    
+                    .user {
+                        font-size: 20px;
+                        font-family: MADE_TOMMY_Regular;
+                        color: white;
+                    }
+                    
+                    .bot-badge {
+                        background: #6373ff;
+                        box-shadow: 0px 5px 25px #6373ff41;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 0 6px 0 6px;
+                        height: 20px;
+                        gap: 2px;
+                        color: white;
+                        border-radius: 4px;
+                        font-family: MADE_TOMMY_Regular;
+                        transform: scale(0.9);
+                        margin-left: -5px;
+    
+                        .icon {
+                            transform: rotate(-7deg);
+                            font-size: 16px;
+                            position: relative;
+                            top: 2px;
+                        }
+    
+                        span {
+                            font-size: 12.5px;
+                        }
+                    }
+                }
+    
+                .text {
                     font-family: MADE_TOMMY_Light;
-                    color: rgba(255, 255, 255, 0.3);
+                    padding: 20px 25px;
+                    font-size: 17px;
+                    overflow-wrap: break-word;
+                    word-break: break-all;
+                    color: white;
+                    max-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    white-space: pre-wrap;
+                    line-height: 1.35em;
+    
+                    .timestamp {
+                        font-size: 14px;
+                        font-family: MADE_TOMMY_Light;
+                        color: rgba(255, 255, 255, 0.3);
+                    }
                 }
             }
+
+            .same-user {
+                margin-top: -20px;
+            }
+        }
+
+        .same-user-group .avatar {
+            display: none;
         }
 
         .left {
             justify-content: flex-start;
             align-items: flex-start;
 
-            .text {
+            .message .text {
                 border-radius: 5px 10px 10px 10px;
                 align-items: flex-start;
+            }
+
+            .same-user .text {
+                border-radius: 10px;
             }
         }
 
@@ -208,31 +317,35 @@ body {
             justify-content: flex-end;
             align-items: flex-end;
 
-            .text {
+            .avatar {
+                display: none;
+            }
+
+            .message .text {
                 border-radius: 10px 5px 10px 10px;
                 align-items: flex-end;
+            }
+
+            .message .username .user {
+                display: none;
+            }
+
+            .same-user .text {
+                border-radius: 10px;
             }
         }
 
         .primary {
-            .text {
+            .message .text {
                 background: #606060;
                 box-shadow: -2.5px 5px 25px #00000012;
             }
         }
 
         .secondary {
-            .text {
+            .message .text {
                 background: #474747;
                 box-shadow: -2.5px 5px 25px #00000012;
-            }
-        }
-
-        .same-user {
-            margin-top: -20px;
-
-            .text {
-                border-radius: 10px;
             }
         }
     }
@@ -244,7 +357,7 @@ body {
     justify-content: space-between;
     border-radius: 10px;
     background: rgb(42, 42, 42);
-    margin: 0 35px 35px 35px;
+    margin: 0 25px 25px 25px;
     box-shadow: 0px 10px 25px #00000013;
     position: relative;
     padding: 15px;
@@ -262,22 +375,23 @@ body {
         border-radius: 10px;
         color: white;
         width: 100%;
+        cursor: text;
     }
 
     .button {
         background: #6373ff;
         box-shadow: 0px 5px 25px #6373ff41;
         color: white;
-        padding: 10px 12px;
+        padding: 12px 2px;
         font-size: 25px;
-        border-radius: 7px;
+        border-radius: 8px;
         cursor: pointer;
         box-sizing: border-box;
         aspect-ratio: 1/1;
-        height: 100%;
-        display: flex;
+        height: 50px;
         align-items: center;
         justify-content: center;
+        display: none;
     }
 
     .disabled {
@@ -286,7 +400,21 @@ body {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 950px) {
+
+    .footer {
+        .button {
+            display: flex;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .column .mid {
+        transform: scale(1);
+        width: 100%;
+    }
     
     .chat-box {
         height: 100%;
@@ -296,9 +424,35 @@ body {
         .header {
             border-radius: 0;
         }
+
+        .chat-container .chat {
+            padding: 30px 22px 30px 30px;
+        }
     }
 
     .set-username {
         margin: 50px;
+        box-sizing: border-box;
+        width: 90%;
+
+        .title {
+            font-size: 35px;
+            margin-bottom: 5px;
+        }
+
+        .button {
+            font-size: 30px;
+            padding: 10px 15px;
+        }
+
+        .input {
+            font-size: 30px;
+            padding: 10px 15px;
+            cursor: text;
+        }
+    }
+
+    .footer {
+        margin: 0 20px 20px 20px;
     }
 }
