@@ -121,7 +121,7 @@ function App() {
 								if (isTyping?.id === userId) socket?.emit('stop-typing', { id: userId, name: username });
 							}, 2000));
 						}} />
-						<div className='button' onClick={() => sendMessage()}><BsFillSendFill /></div>
+						<div className={`button${!(message && message !== '' && message.replaceAll(' ','') !== '') ? ' disabled' : ''}`} onClick={() => sendMessage()}><BsFillSendFill /></div>
 					</div>
 				</div>
 			}
