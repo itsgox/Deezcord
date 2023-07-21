@@ -238,7 +238,6 @@ body {
   font-size: 25px;
   border-radius: 7px;
   cursor: pointer;
-  transition: 0.5s;
   box-sizing: border-box;
   aspect-ratio: 1/1;
   height: 100%;
