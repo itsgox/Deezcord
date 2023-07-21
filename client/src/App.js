@@ -23,10 +23,12 @@ function App() {
 		{ id: 0, user: 'Elon Musk', text: 'Welcome to Deezcord!', bot: true, timestamp: new Date().toLocaleString('en-US', { hour: '2-digit', hour12: true, minute: '2-digit' }) }
 	]);
 
-	function sendMessage(bot, avoid) {
+	function sendMessage(bot) {
 
 		if ((message && message !== '') || bot) {
-			socket?.emit('send-message', { id: bot ? 0 : userId, user: bot ? 'Elon Musk' : username, text: bot ? bot : message, bot: bot ? true : false, avoid, timestamp: new Date().toLocaleString('en-US', { hour: '2-digit', hour12: true, minute: '2-digit' }) });
+			const msg = { id: bot ? 0 : userId, user: bot ? 'Elon Musk' : username, text: bot ? bot : message, bot: bot ? true : false, avoid: userId };
+			setChat(chat.concat([msg]));
+			socket?.emit('send-message', msg);
 			if (!bot) {
 				setMessage('');
 				if (isTyping?.id === userId) socket?.emit('stop-typing', { id: userId, name: username });
@@ -52,7 +54,7 @@ function App() {
 		});
 
 		socket?.on('new-message', (msg) => {
-			if (!msg.avoid || msg.avoid !== userId) setChat(chat.concat([msg]));
+			if (!msg.avoid || msg.avoid !== userId) setChat(chat.concat([{ ...msg, timestamp: new Date().toLocaleString('en-US', { hour: '2-digit', hour12: true, minute: '2-digit' }) }]));
 		});
 
 		socket?.on('user-start-typing', (usr) => {
