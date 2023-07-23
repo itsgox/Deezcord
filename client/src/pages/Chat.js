@@ -49,7 +49,7 @@ function Chat({ login }) {
 
 	useEffect(() => {
 
-		const _socket = io(dev ? 'ws://localhost:3005' : 'https://wsocket.deezcord.xyz');
+		const _socket = io(dev ? 'ws://localhost:3005' : 'https://wsocket.dacosta.codes');
 		_socket?.on('connect', () => {
 			setSocket(_socket);
 		});

@@ -2,7 +2,7 @@ const { developmentMode } = require('./config.json');
 const { Server } = require('socket.io');
 const io = new Server(3005, {
 	cors: {
-		origin: developmentMode ? 'http://localhost:3000' : 'https://deezcord.xyz'
+		origin: developmentMode ? 'http://localhost:3000' : 'https://deezcord.dacosta.codes'
 	}
 });
 
